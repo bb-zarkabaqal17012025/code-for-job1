@@ -1,28 +1,14 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
+      source = "hashicorp/aws" #taken from terraform registery
+      version = "5.92.0"
     }
   }
 }
-
-# Configure the AWS Provider
 provider "aws" {
-  region = "ap-south-1"
-
+  region = "ap-south-1"  # Set the region to ap-south-1 (Mumbai)
 }
-
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "zarka-bucket-tf-123"  # Change to a globally unique name
-  acl    = "public-read"  # Options: private, public-read, public-read-write, authenticated-read
-
-  tags = {
-    Name  = "zarka-bucket-tf-123"
-    team  = "Cloudnauts"
-    Owner = "zarka.baqal@bigbasket.com"
-  }
+  bucket = "zarka-bucket-for-tf"  # The unique name of the S3 bucket
 }
-
-
-
